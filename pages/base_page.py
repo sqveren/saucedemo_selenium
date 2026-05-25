@@ -11,7 +11,6 @@ class BasePage:
     def click(self,locator):
         element = self.wait.until(
             EC.element_to_be_clickable(locator)
-
         )
         element.click()
 
@@ -34,6 +33,4 @@ class BasePage:
             EC.visibility_of_element_located(locator)
         )
 
-    def open(self, url):
-        self.driver.get(url)
 

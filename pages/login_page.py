@@ -1,18 +1,17 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+from config.settings import BASE_URL
 
 
 class LoginPage(BasePage):
-
-    URL = "https://www.saucedemo.com"
 
     USERNAME_INPUT = (By.CSS_SELECTOR, ".input_error.form_input")
     PASSWORD_INPUT = (By.CSS_SELECTOR, "input[data-test='password']")
     BUTTON_LOGIN = (By.CSS_SELECTOR, ".submit-button.btn_action")
 
     def open(self):
-        super().open(self.URL)
+        self.driver.get(BASE_URL)
 
     def login(self, username, password):
         self.type(self.USERNAME_INPUT, username)
