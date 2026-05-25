@@ -13,7 +13,7 @@ def driver():
 
     options = webdriver.ChromeOptions()
 
-    options.add_argument("")
+    options.add_argument("--start-maximized")
 
     driver = webdriver.Chrome(
         service=service,

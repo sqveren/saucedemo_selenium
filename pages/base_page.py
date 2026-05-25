@@ -1,15 +1,11 @@
-from socket import send_fds
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-from conftest import driver
 
 
 class BasePage:
 
     def __init__(self, driver):
-        driver = self.driver
+        self.driver = driver
         self.wait = WebDriverWait(driver,10)
 
     def click(self,locator):
@@ -24,7 +20,8 @@ class BasePage:
         element = self.wait.until(
             EC.visibility_of_element_located(locator)
         )
-        element.click()
+        element.clear()
+        element.send_keys(text)
 
     def get_text(self,locator):
         return self.wait.until(
@@ -36,3 +33,7 @@ class BasePage:
         return self.wait.until(
             EC.visibility_of_element_located(locator)
         )
+
+    def open(self, url):
+        self.driver.get(url)
+
