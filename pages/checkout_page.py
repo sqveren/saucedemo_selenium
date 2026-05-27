@@ -17,13 +17,13 @@ class CheckoutPage(BasePage):
 
 
     def enter_first_name(self,first_name):
-        self.find(*self.INPUT_NAME_FIELD).send_keys(first_name)
+        self.find(self.INPUT_NAME_FIELD).send_keys(first_name)
 
     def enter_last_name(self,last_name):
-        self.find(*self.INPUT_LAST_NAME_FIELD).send_keys(last_name)
+        self.find(self.INPUT_LAST_NAME_FIELD).send_keys(last_name)
 
     def enter_zip_code(self,zip_code):
-        self.find(*self.INPUT_ZIP_FIELD).send_keys(zip_code)
+        self.find(self.INPUT_ZIP_FIELD).send_keys(zip_code)
 
     def enter_all_information(self,first_name,last_name,zip_code):
         self.enter_first_name(first_name)
@@ -38,3 +38,6 @@ class CheckoutPage(BasePage):
 
     def get_error_message(self):
         return self.find(self.ERROR_MESSAGE).text
+
+    def finish_checkout(self):
+        self.click(self.FINISH_BUTTON)

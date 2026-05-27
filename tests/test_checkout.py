@@ -10,6 +10,8 @@ def test_checkout_with_information(driver, logged_and_checkout_page):
         "00001"
     )
 
+    logged_and_checkout_page.continue_checkout()
+
     assert "checkout-step-two" in driver.current_url
 
 
@@ -67,4 +69,4 @@ def test_cancel_checkout(driver, logged_and_checkout_page):
 
     logged_and_checkout_page.cancel_checkout()
 
-    assert "inventory" in driver.current_url
+    assert "cart" in driver.current_url
