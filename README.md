@@ -20,3 +20,22 @@ The project follows the Page Object Model (POM) design pattern to improve mainta
 ---
 
 ## Project Structure
+project-root/
+│
+├── pages/
+│ ├── base_page.py
+│ ├── login_page.py
+│ ├── inventory_page.py
+│ ├── cart_page.py
+│ ├── checkout_page.py
+│
+├── tests/
+│ ├── test_login.py
+│ ├── test_inventory.py
+│ ├── test_cart.py
+│ ├── test_checkout.py
+│ ├── test_e2e.py
+│
+├── conftest.py
+├── requirements.txt
+└── README.md
