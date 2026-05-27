@@ -52,6 +52,23 @@ class InventoryPage(BasePage):
         element = self.find(self.DROPDOWN_BUTTON_LOCATOR)
         return Select(element)
 
+#Видалення речей з кошика
+    def remove_from_cart(self, item_name):
+        locator = (By.CSS_SELECTOR, f"[data-test='remove-{item_name}']")
+        self.click(locator)
+
+    def remove_all_items_inventory_page(self):
+        while self.driver.find_elements(
+                By.CSS_SELECTOR,
+                "[data-test^='remove']"
+        ):
+            buttons = self.driver.find_elements(
+                By.CSS_SELECTOR,
+                "[data-test^='remove']"
+            )
+
+            buttons[0].click()
+
 #Сортування
 
     def sort_by(self, sorting_method):
