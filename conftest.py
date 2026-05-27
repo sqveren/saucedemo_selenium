@@ -1,6 +1,8 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
 
 import pytest
 
@@ -31,3 +33,13 @@ def driver():
     yield driver
 
     driver.quit()
+
+@pytest.fixture
+def logged_in_inventory(driver):
+    login = LoginPage(driver)
+    inventory = InventoryPage(driver)
+
+    login.open()
+    login.login_as_standard_user()
+
+    return inventory

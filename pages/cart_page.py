@@ -23,15 +23,18 @@ class CartPage(BasePage):
 
 
     def go_to_checkout(self):
-        self.wait.until(
-            EC.element_to_be_clickable(self.CHECKOUT_BUTTON)
-        ).click()
+        self.click(self.CHECKOUT_BUTTON)
 
 
     def back_to_shopping(self):
-        self.wait.until(
-            EC.element_to_be_clickable(self.CONTINUE_SHOPPING_BUTTON)
-        ).click()
+        self.click(self.CONTINUE_SHOPPING_BUTTON)
 
     def is_cart_empty(self):
         return len(self.driver.find_elements(*self.CART_ITEM)) == 0
+
+    def get_cart_items_names(self):
+        items = self.driver.find_elements(*self.CART_ITEM)
+        return [item.text for item in items]
+
+    def open_checkout(self):
+        self.click(self.CHECKOUT_BUTTON)

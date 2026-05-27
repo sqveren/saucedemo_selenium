@@ -93,7 +93,7 @@ def test_remove_from_cart(driver):
     assert inventory_page.get_num_of_items_in_cart() == 0
 
 
-def test_remove_all_from_cart(driver):
+def test_remove_all_from_cart(driver, ):
     login_page = LoginPage(driver)
     inventory_page = InventoryPage(driver)
 
