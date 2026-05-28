@@ -19,6 +19,9 @@ def driver():
 
     options.add_argument("--start-maximized")
     options.add_argument("--incognito")
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
     prefs = {
         "credentials_enable_service": False,
